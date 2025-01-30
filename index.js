@@ -23,6 +23,33 @@ function start() {
             ]
         }) /*End Prompt*/
         .then((answer) => {
-            switch (answer.action)
-        })
+            /*Each case will allow the user to do their desired action*/
+            switch (answer.action) {
+                case "View all Departments":
+                    viewAllDepartments();
+                    break;
+                case "View all Roles":
+                    viewAllRoles();
+                    break;
+                case "View all Employees":
+                    viewAllEmployees();
+                    break;
+                case "Add a Department":
+                    addADepartment();
+                    break;
+                case "Add a Role":
+                    addARole();
+                    break;
+                case "Add an Employee":
+                    addAnEmployee();
+                    break;
+                case "Update an Employee's Role":
+                    updateEmployeeRole();
+                    break;
+                case "Exit Application":
+                    process.exit();
+            } /*End Switch*/
+        }); /*End Then*/
 }
+
+start();
