@@ -2,10 +2,10 @@
 //Maya Li Bauer
 //January 30, 2025
 
-const inquirer = require("inquirer");
-const db = require("./queries");
+import inquirer from "inquirer";
+import * as queries from "./queries.js";
 
-function start() {
+export function start() {
     inquirer
         .prompt({
             type: "list",
@@ -19,6 +19,7 @@ function start() {
                 "Add a Role",
                 "Add an Employee",
                 "Update an Employee's Role",
+                "Delete a Department",
                 "Exit Application"
             ]
         }) /*End Prompt*/
@@ -26,25 +27,28 @@ function start() {
             /*Each case will allow the user to do their desired action*/
             switch (answer.action) {
                 case "View all Departments":
-                    viewAllDepartments();
+                    queries.viewAllDepartments();
                     break;
                 case "View all Roles":
-                    viewAllRoles();
+                    queries.viewAllRoles();
                     break;
                 case "View all Employees":
-                    viewAllEmployees();
+                    queries.viewAllEmployees();
                     break;
                 case "Add a Department":
-                    addADepartment();
+                    queries.addADepartment();
                     break;
                 case "Add a Role":
-                    addARole();
+                    queries.addARole();
                     break;
                 case "Add an Employee":
-                    addAnEmployee();
+                    queries.addAnEmployee();
                     break;
                 case "Update an Employee's Role":
-                    updateEmployeeRole();
+                    queries.updateEmployeeRole();
+                    break;
+                case "Delete a Department":
+                    queries.deleteADepartment();
                     break;
                 case "Exit Application":
                     process.exit();
